@@ -62,9 +62,37 @@
   border-left: 15px solid black ;
   border-right: 15px solid black ;
 }
-body
+.LoginImg
 {
+  width: 50%;
+  height: 50%;
+  background-color: yellow;
+  padding: 50px;
   /*background-color: black;*/
+}
+
+.LoginPageInput
+{
+  text-align: center;
+  margin-top: 100px;
+
+}
+.LoginPageInput input
+{
+  height:25px;
+  font-size:19pt;
+  margin-top: 25px;
+
+}
+.LoginPageInput button
+{
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+body {
+  background-color: black;
+
 }
 
 
