@@ -2,6 +2,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import Login from "./Pages/Login";
 import SeeAllTM from "./Pages/SeeAllTM";
+import PostNewTM from "./Pages/PostNewTM"
 import {useEffect, useState} from "react";
 import axios from "axios";
 
@@ -28,6 +29,12 @@ useEffect(() => {
         const response = await
             axios.get(URL)
         setAllTM(response.data);
+    }
+
+    async function postTM(data)
+    {
+      await  axios.post(URL, data)
+      await  getAllTM()
     }
 
 
@@ -64,6 +71,15 @@ useEffect(() => {
 
 
                      />}/>
+              <Route path={"/PostNewTM"}
+                     element={<PostNewTM
+                         getAllTM={getAllTM} allTM={allTM}
+                         aUserLoggedIn={aUserLoggedIn}
+                         userLogedIn={userLogedIn}
+                         authenticatedUser={authenticatedUser}
+                        postTM={postTM}
+                     />}/>
+
           </Routes>
       </Router>
 

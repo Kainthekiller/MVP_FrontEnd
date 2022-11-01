@@ -43,13 +43,13 @@ function HomePage(props) {
                             <Button onClick={handleLogOut}  variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}>Log Out</Button>
                         </Link>}
 
-                    <Link style={{color: "inherit"}}  to={""} underline="hover">
+                    <Link style={{color: "inherit"}}  to={"/PostNewTM"} underline="hover">
                         <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}>Post Tm (Admin)</Button>
                     </Link>
 
 
                     <Link style={{color: "inherit"}} to={"/SeeAllTM"} underline="hover">
-                        <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}  >See All TM</Button>
+                        <Button onClick={props.getAllTM} variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}  >See All TM</Button>
                     </Link>
 
                     <Link  style={{color: "inherit"}} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 3, paddingRight: 3}} href="#" underline="hover">
