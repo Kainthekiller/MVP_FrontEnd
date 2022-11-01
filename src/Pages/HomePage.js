@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import "../App.css";
 import {Link} from "react-router-dom";
 import {Button} from "@mui/material";
@@ -9,6 +9,15 @@ import {Button} from "@mui/material";
 
 function HomePage(props) {
     //Use State
+
+
+    //Custom Method
+    function handleLogOut()
+    {
+        props.setAuthenticatedUser(false);
+        props.setUserLoggedIn("")
+        props.setaUserLoggedIn(false)
+    }
 
 
     return (
@@ -25,16 +34,21 @@ function HomePage(props) {
 
                 <div className="NavLinks">
                     {/*User Login Button*/}
-                    <Link  underline="hover" style={{color: "inherit"}}  to={"/login" }
-                         >
-                        <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}  >Login</Button>
-                    </Link>
-                    <Link style={{color: "inherit"}}  sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}} href="#" underline="hover">
-                        <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}  >Post Tm</Button>
+                    {!props.aUserLoggedIn ?
+
+                        <Link  underline="hover" style={{color: "inherit"}}  to={"/login" }>
+                            <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}>Login</Button>
+                        </Link>:
+                        <Link  underline="hover" style={{color: "inherit"}}  to={"" }>
+                            <Button onClick={handleLogOut}  variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}>Log Out</Button>
+                        </Link>}
+
+                    <Link style={{color: "inherit"}}  to={""} underline="hover">
+                        <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}>Post Tm (Admin)</Button>
                     </Link>
 
 
-                    <Link style={{color: "inherit"}} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2}} href="#" underline="hover">
+                    <Link style={{color: "inherit"}} to={"/SeeAllTM"} underline="hover">
                         <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}  >See All TM</Button>
                     </Link>
 

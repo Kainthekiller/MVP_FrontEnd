@@ -10,7 +10,7 @@ function Login(props)
     //Use State
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
-    const [authenticatedUser, setAuthenticatedUser] = useState(false)
+
 
     //Use Effect
 
@@ -21,7 +21,7 @@ function Login(props)
         if (userName === "admin" && password === "password")
         {
             console.log("Admin Logged In")
-            setAuthenticatedUser(true);
+            props.setAuthenticatedUser(true);
             props.setUserLoggedIn("admin")
             props.setaUserLoggedIn(true)
         }
@@ -31,7 +31,7 @@ function Login(props)
 
     //Main
     return (
-        <>
+        <div className={"LoginPage"}>
             <div className={"LoginStatus"}>
                 {props.aUserLoggedIn ? <p>Login as:  {props.userLogedIn}</p> : <p>Login as: Guest</p>}
             </div>
@@ -67,7 +67,7 @@ function Login(props)
 
 
         </div>
-            </>
+            </div>
     )
 }
 
