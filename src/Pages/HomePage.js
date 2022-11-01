@@ -1,14 +1,22 @@
-import React from "react";
-import {Link} from "@mui/material";
+import React, {useState} from "react";
 import "../App.css";
+import {Link} from "react-router-dom";
+import {Button} from "@mui/material";
 
 
 
 
-function HomePage() {
+
+function HomePage(props) {
+    //Use State
+
+
     return (
 
         <>
+            <div className={"LoginStatus"}>
+            {props.aUserLoggedIn ? <p>Login as:  {props.userLogedIn}</p> : <p>Login as: Guest</p>}
+            </div>
             <div className="MainPageHead">
                 <h1>Welcome To PMCS</h1>
                 <img className={"swfLogo"} src="https://afcwebsite.blob.core.usgovcloudapi.net/uploads/assets/sf_logo_1c_776c839b0c.svg" alt=""></img>
@@ -16,21 +24,22 @@ function HomePage() {
                 <img className={"NavImageTwo"} src="https://api.army.mil/e2/c/images/2022/03/31/c2981df3/original.jpg" alt=""></img>
 
                 <div className="NavLinks">
-
-                    <Link sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}} href="http://localhost:3000/Login" underline="hover">
-                        {'Login'}
+                    {/*User Login Button*/}
+                    <Link  underline="hover" style={{color: "inherit"}}  to={"/login" }
+                         >
+                        <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}  >Login</Button>
                     </Link>
-                    <Link sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}} href="#" underline="hover">
-                        {'Post TM'}
-                    </Link>
-
-
-                    <Link sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2}} href="#" underline="hover">
-                        {'See All TM'}
+                    <Link style={{color: "inherit"}}  sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}} href="#" underline="hover">
+                        <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}  >Post Tm</Button>
                     </Link>
 
-                    <Link sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 3, paddingRight: 3}} href="#" underline="hover">
-                        {'Find TM'}
+
+                    <Link style={{color: "inherit"}} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2}} href="#" underline="hover">
+                        <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}  >See All TM</Button>
+                    </Link>
+
+                    <Link  style={{color: "inherit"}} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 3, paddingRight: 3}} href="#" underline="hover">
+                        <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}  >Find Tm</Button>
                     </Link>
 
                 </div>
@@ -48,20 +57,19 @@ function HomePage() {
             </div>
 
             <div className={"BottomPage"}>
-                <Link sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}} href="#" underline="hover">
-                    {'AKO'}
+                <Link style={{color: "inherit"}} href="#" underline="hover">
+                    <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}  >AKO</Button>
                 </Link>
-                <Link sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}} href="#" underline="hover">
-                    {'Army Publishing Directorate'}
+                <Link style={{color: "inherit"}} href="#" underline="hover">
+                    <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}  >Army Publishing Directorate</Button>
                 </Link>
-
-
-                <Link sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2}} href="#" underline="hover">
-                    {'Wikipedia PMCS'}
+                <Link style={{color: "inherit"}} href="#" underline="hover">
+                    <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}  >Wikipedia PMCS</Button>
                 </Link>
 
-                <Link sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 3, paddingRight: 3}} href="#" underline="hover">
-                    {'Army PMCS FlashCard'}
+                <Link style={{color: "inherit"}} href="#" underline="hover">
+                    <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}  >Army PMCS FlashCard</Button>
+
                 </Link>
             </div>
         </>
