@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import "../StyleSheet/CreateNewAccount.css"
-import {Button, colors} from "@mui/material";
+import {Button} from "@mui/material";
+import {Link} from "react-router-dom";
 function CreateNewAccount(props)
 {
     //Use State
@@ -11,6 +12,19 @@ const [admin, setAdmin] = useState(false);
 const [accountCreated, setAccountCreated] = useState(false)
     //Custom Method
 
+    function handleSubmit(e)
+    {
+        e.preventDefault()
+        const data = {
+           username: username,
+           password: password,
+           email: email,
+           admin: admin
+       }
+       setAccountCreated(true);
+       props.postNewAccount(data)
+    }
+
     //Main
     return (
         <>
@@ -19,7 +33,7 @@ const [accountCreated, setAccountCreated] = useState(false)
             </div>
             <h1 style={{textAlign: "center", textDecoration: "underline"}}>Create New Account</h1>
             <div className={"InputFormsPost"}>
-            <form style={{textAlign: "center", }}>
+            <form onSubmit={(e) => handleSubmit(e)} style={{textAlign: "center", }}>
                 <span style={{margin: 5}}>
            UserName:
                 </span>
@@ -55,19 +69,20 @@ const [accountCreated, setAccountCreated] = useState(false)
                 onChange={(e) => setAdmin(e.target.checked)}
                 />
                 </div>
-                {accountCreated ?
+                {!accountCreated ?
                     <div>
-                <Button sx={{backgroundColor: "Black", color: "yellow"}} variant={"contained"}>Create Account</Button>
+                <Button type={"submit"} sx={{backgroundColor: "Black", color: "yellow"}} variant={"contained"}>Create Account</Button>
                         <br/>
-                        <Button sx={{backgroundColor: "black", color: "yellow"}} variant={"contained"}>Go Back</Button>
                     </div>
                         :
 
                     <div>
                     <p style={{color: "green"}}>Account Created</p>
-                    <Button sx={{backgroundColor: "black", color: "yellow"}} variant={"contained"}>Go Back</Button>
                     </div>}
             </form>
+                <div style={{textAlign: "center"}}>
+                <Link style={{color: "inherit"}} to={"/Login"}><Button sx={{backgroundColor: "black", color: "yellow"}} variant={"contained"}>Go Back</Button></Link>
+                </div>
             </div>
         </>
     )

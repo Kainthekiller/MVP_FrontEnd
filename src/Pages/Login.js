@@ -17,18 +17,18 @@ function Login(props)
     //Custom Method
     function handleLogin(e)
     {
-
-        if (userName === "admin" && password === "password")
-        {
-            console.log("Click")
-            props.setAuthenticatedUser(true);
-            props.setUserLoggedIn("admin")
-            props.setaUserLoggedIn(true)
-            setUserName("")
-            setPassword("")
-            return;
-        }
-        alert("Invalid UserName and Or Password")
+        e.preventDefault()
+        // if (userName === "admin" && password === "password")
+        // {
+        //     console.log("Click")
+        //     props.setAuthenticatedUser(true);
+        //     props.setUserLoggedIn("admin")
+        //     props.setaUserLoggedIn(true)
+        //     setUserName("")
+        //     setPassword("")
+        //     return;
+        // }
+        props.authenticateLogin(userName, password)
         setUserName("")
         setPassword("")
 
