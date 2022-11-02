@@ -3,6 +3,7 @@ import {Link, Navigate} from "react-router-dom";
 import {Button} from "@mui/material";
 import  "../StyleSheet/PostNewTM.css"
 
+
 function PostNewTM(props)
 {
     //Use State
@@ -26,15 +27,59 @@ function PostNewTM(props)
     function handleSubmit(e)
     {
         e.preventDefault()
+        if (itemName === "")
+        {
+            console.log("Ran")
+            alert("Please Put Equipment Name")
+            return;
+        }
+        if (publishDate === "")
+        {
+            console.log("Ran")
+            alert("Please Put Publish Date")
+            return;
+        }
+        if (tmNumber === "")
+        {
+            console.log("Ran")
+            alert("Please Put TM Number")
+            return;
+        }
+        if (pageCount === 0)
+        {
+            console.log("Ran")
+            alert("Please Put Page Count")
+            return;
+        }
+        if (pagePMCSStart === 0)
+        {
+            console.log("Ran")
+            alert("Please Put PMCS Start Page")
+            return;
+        }
+        if (link === "")
+        {
+            console.log("Ran")
+            alert("Please Put In A Link")
+            return;
+        }
+
         const data = {
-            itemName: "Humvee (Variations 1097)",
-            publishDate: "1991-06-18",
-            tmNumber: "TM 9-2320-280-20-1 Post",
-            pageCount: 420,
-            pagePmcsStart: 115,
-            link: "https://www.hmmwvinscale.com/HMMWV%20TM.pdf#page=115"
+            itemName: itemName,
+            publishDate: publishDate,
+            tmNumber: tmNumber,
+            pageCount: pageCount,
+            pagePmcsStart: pagePMCSStart,
+            link: link
         }
         props.postTM(data);
+        setItemName("")
+        setPublishDate("")
+        setTMNumber("")
+        setPageCount(0)
+        setPagePMCSStart(0)
+        setLink("")
+        alert("TM Added To DataBase")
     }
     //Use Effect
     // useEffect(() =>
@@ -110,12 +155,14 @@ function PostNewTM(props)
         </span>
             <input
                 style={{textAlign: "center"}}
-                placeholder={"Link To TM"}
+                placeholder={"Link HTTP://www.google.com"}
                 value={link}
                 onChange={(e) => setLink(e.target.value)}
             />
             <br/>
             <Button type={"submit"} className={"ButtonPost"} variant={"contained"} sx={{backgroundColor: "Black" , color: "Yellow", m: 2}}>Submit</Button>
+
+
         </form>
     </div>
         </>
