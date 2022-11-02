@@ -5,7 +5,7 @@ import SeeAllTM from "./Pages/SeeAllTM";
 import PostNewTM from "./Pages/PostNewTM"
 import {useEffect, useState} from "react";
 import axios from "axios";
-import FindTM from "./Pages/FindTM";
+import CreateNewAccount from "./Pages/CreateNewAccount";
 
 function App() {
     const URL = "http://localhost:8080/PMCS"
@@ -86,8 +86,8 @@ useEffect(() => {
                          authenticatedUser={authenticatedUser}
                         postTM={postTM}
                      />}/>
-              <Route path={"/FindTM"}
-                     element={<FindTM
+              <Route path={"/CreateNewAccount"}
+                     element={<CreateNewAccount
                          aUserLoggedIn={aUserLoggedIn}
                          userLogedIn={userLogedIn}
                          authenticatedUser={authenticatedUser}
@@ -96,6 +96,7 @@ useEffect(() => {
                      />}/>
 
           </Routes>
+
       </Router>
 
   );

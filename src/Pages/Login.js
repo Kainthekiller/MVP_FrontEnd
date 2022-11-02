@@ -79,7 +79,10 @@ function Login(props)
             </Link>
 
             </form>
+            <p>Need an account?<Link to={"/CreateNewAccount"} style={{color: "inherit"}}><Button sx={{m: 2, backgroundColor: "blacK", color: "yellow"}} variant={"contained"}>Create an Account</Button></Link></p>
         </div>
+
+
             </div>
 
     )
