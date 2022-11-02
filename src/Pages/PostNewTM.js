@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, {useState} from "react";
 import {Link, Navigate} from "react-router-dom";
 import {Button} from "@mui/material";
 import  "../StyleSheet/PostNewTM.css"
@@ -14,6 +14,8 @@ function PostNewTM(props)
     const [pagePMCSStart, setPagePMCSStart] = useState(0);
     const [link, setLink] = useState("")
     //Custom Method
+
+
 
     //Handles If the User is allowed to Post
     function handleRedirect()
@@ -84,11 +86,7 @@ function PostNewTM(props)
         setLink("")
         alert("TM Added To DataBase")
     }
-    //Use Effect
-    // useEffect(() =>
-    // {
-    //     handleRedirect()
-    // }, [])
+
 
     //Main
     return (

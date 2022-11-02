@@ -5,6 +5,7 @@ import SeeAllTM from "./Pages/SeeAllTM";
 import PostNewTM from "./Pages/PostNewTM"
 import {useEffect, useState} from "react";
 import axios from "axios";
+import FindTM from "./Pages/FindTM";
 
 function App() {
     const URL = "http://localhost:8080/PMCS"
@@ -17,7 +18,7 @@ function App() {
 
     //ALL TM State
     const [allTM, setAllTM] = useState([])
-
+    const [TMSearch, setTMSearch] = useState([])
     //Use Effect
 useEffect(() => {
     getAllTM()
@@ -35,6 +36,12 @@ useEffect(() => {
     {
       await  axios.post(URL, data)
       await  getAllTM()
+    }
+    async function searchTM(name)
+    {
+        const response = await
+         axios.get(URL + "/byEquipmentName/" + name)
+        setTMSearch(response.data)
     }
 
 
@@ -78,6 +85,14 @@ useEffect(() => {
                          userLogedIn={userLogedIn}
                          authenticatedUser={authenticatedUser}
                         postTM={postTM}
+                     />}/>
+              <Route path={"/FindTM"}
+                     element={<FindTM
+                         aUserLoggedIn={aUserLoggedIn}
+                         userLogedIn={userLogedIn}
+                         authenticatedUser={authenticatedUser}
+                         TMSearch={TMSearch}
+                         searchTM={searchTM}
                      />}/>
 
           </Routes>

@@ -21,8 +21,8 @@ function SeeAllTM(props)
             <div style={{textAlign: "center"}}>
                 <img className={"swfLogo"} src="https://afcwebsite.blob.core.usgovcloudapi.net/uploads/assets/sf_logo_1c_776c839b0c.svg" alt=""></img>
             </div>
-            <h1 style={{textAlign: "center"}}>View All TM</h1>
-            <h3 style={{textAlign: "center"}}>Select The Equpment Name To View PMCS Section of TM</h3>
+            <h1 style={{textAlign: "center", textDecoration: "underline"}}>View All TM</h1>
+            <h3 style={{textAlign: "center" , textDecoration: "underline"}}>Select The Equpment Name To View PMCS Section of TM</h3>
             <Link to={"/"} style={{color: "inherit"}}><Button sx={{backgroundColor: "Black", color: "Yellow", m: 2}} variant={"contained"}>Go Back</Button></Link>
             <div className={"listOfTM"}>
             <TableContainer component={Paper}>

@@ -26,7 +26,9 @@ function Login(props)
             props.setaUserLoggedIn(true)
             setUserName("")
             setPassword("")
+            return;
         }
+        alert("Invalid UserName and Or Password")
         setUserName("")
         setPassword("")
 
@@ -45,7 +47,7 @@ function Login(props)
 
 
                 <img className={"swfLogo"} src="https://afcwebsite.blob.core.usgovcloudapi.net/uploads/assets/sf_logo_1c_776c839b0c.svg" alt=""></img>
-
+            <h1 style={{textDecoration: "underline"}}>Login</h1>
             <header>
 
                 <img className={"LoginImg"} src={"https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"} alt={""}/>
