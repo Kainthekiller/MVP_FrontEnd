@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Link, Navigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {Button} from "@mui/material";
 
 
@@ -43,9 +43,9 @@ function Login(props)
         <div className={"LoginPageInput"}>
 
 
-            <div>
+
                 <img className={"swfLogo"} src="https://afcwebsite.blob.core.usgovcloudapi.net/uploads/assets/sf_logo_1c_776c839b0c.svg" alt=""></img>
-            </div>
+
             <header>
 
                 <img className={"LoginImg"} src={"https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"} alt={""}/>

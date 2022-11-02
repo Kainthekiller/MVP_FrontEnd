@@ -26,22 +26,25 @@ function PostNewTM(props)
 
     function handleSubmit(e)
     {
+        let holderDateMonth = publishDate.charAt(5) + publishDate.charAt(6)
+        parseInt(holderDateMonth)
+        let holderDateDay = publishDate.charAt(8) + publishDate.charAt(9)
+        parseInt(holderDateDay)
         e.preventDefault()
         if (itemName === "")
         {
-            console.log("Ran")
             alert("Please Put Equipment Name")
             return;
         }
-        if (publishDate === "")
+
+        if (publishDate === "" || publishDate.length !== 10 || publishDate.charAt(5) > 1 || parseInt(holderDateMonth) > 12  || parseInt(holderDateDay) > 31)
         {
-            console.log("Ran")
-            alert("Please Put Publish Date")
+            alert("Please Put Valid Publish Date")
             return;
         }
         if (tmNumber === "")
         {
-            console.log("Ran")
+
             alert("Please Put TM Number")
             return;
         }
@@ -53,13 +56,13 @@ function PostNewTM(props)
         }
         if (pagePMCSStart === 0)
         {
-            console.log("Ran")
+
             alert("Please Put PMCS Start Page")
             return;
         }
         if (link === "")
         {
-            console.log("Ran")
+
             alert("Please Put In A Link")
             return;
         }
@@ -95,7 +98,11 @@ function PostNewTM(props)
                 <div className={"LoginStatus"}>
                     {props.aUserLoggedIn ? <p>Login as:  {props.userLogedIn}</p> : <p>Login as: Guest</p>}
                 </div>
+            <div style={{textAlign: "center"}}>
+                <img className={"swfLogo"} src="https://afcwebsite.blob.core.usgovcloudapi.net/uploads/assets/sf_logo_1c_776c839b0c.svg" alt=""></img>
+            </div>
             <h1 style={{textAlign: "center"}}>Post New TM Into Database</h1>
+
             <Link to={"/"} style={{color: "inherit"}}><Button sx={{backgroundColor: "Black", color: "Yellow", m: 2}} variant={"contained"}>Go Back</Button></Link>
     <div className={"InputFormsPost"}>
         <form style={{textAlign: "center"}} onSubmit={(e) => handleSubmit(e)}>
@@ -115,7 +122,7 @@ function PostNewTM(props)
         </span>
             <input
                 style={{textAlign: "center"}}
-                placeholder={"Publish Date"}
+                placeholder={"Publish Date YYYY-MM-DD"}
                 value={publishDate}
                 onChange={(e) => setPublishDate(e.target.value)}
             />
