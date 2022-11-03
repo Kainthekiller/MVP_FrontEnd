@@ -3,6 +3,9 @@ import HomePage from "./Pages/HomePage";
 import Login from "./Pages/Login";
 import SeeAllTM from "./Pages/SeeAllTM";
 import PostNewTM from "./Pages/PostNewTM"
+import FindTM from "./Pages/FindTM"
+import SeeAllTMAdmin from "./Pages/SeeAllTMAdmin"
+import AdminTools from "./Pages/AdminTools"
 import {useEffect, useState} from "react";
 import axios from "axios";
 import CreateNewAccount from "./Pages/CreateNewAccount";
@@ -57,6 +60,11 @@ useEffect(() => {
 
         setaUserLoggedIn(true)
     }
+    async function deleteTM(id)
+    {
+        await axios.delete(URL + "/" + id)
+        getAllTM()
+    }
 
     useEffect(() =>
     {
@@ -110,6 +118,39 @@ useEffect(() => {
                      />}/>
               <Route path={"/CreateNewAccount"}
                      element={<CreateNewAccount
+                         aUserLoggedIn={aUserLoggedIn}
+                         userLogedIn={userLogedIn}
+                         authenticatedUser={authenticatedUser}
+                         TMSearch={TMSearch}
+                         searchTM={searchTM}
+                         postNewAccount={postNewAccount}
+
+                     />}/>
+              <Route path={"/FindTM"}
+                     element={<FindTM
+                         aUserLoggedIn={aUserLoggedIn}
+                         userLogedIn={userLogedIn}
+                         authenticatedUser={authenticatedUser}
+                         TMSearch={TMSearch}
+                         searchTM={searchTM}
+                         postNewAccount={postNewAccount}
+
+                     />}/>
+
+              <Route path={"/SeeAllTMAdmin"}
+                     element={<SeeAllTMAdmin
+                         aUserLoggedIn={aUserLoggedIn}
+                         userLogedIn={userLogedIn}
+                         authenticatedUser={authenticatedUser}
+                         TMSearch={TMSearch}
+                         searchTM={searchTM}
+                         postNewAccount={postNewAccount}
+                         getAllTM={getAllTM} allTM={allTM}
+                         deleteTM={deleteTM}
+
+                     />}/>
+              <Route path={"/AdminTools"}
+                     element={<AdminTools
                          aUserLoggedIn={aUserLoggedIn}
                          userLogedIn={userLogedIn}
                          authenticatedUser={authenticatedUser}
