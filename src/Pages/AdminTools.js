@@ -35,7 +35,7 @@ function AdminTools(props)
                 <Link style={{color: "inherit"}}  to={"/SeeAllTMAdmin"} underline="hover">
                     <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}>Delete TM</Button>
                 </Link>
-                <Link style={{color: "inherit"}}  to={"/"} underline="hover">
+                <Link style={{color: "inherit"}}  to={"/DeleteUser"} underline="hover">
                     <Button variant={"contained"} sx={{m: 2, backgroundColor: "Black", color: "Yellow", padding: 2, paddingLeft: 4, paddingRight: 4}}>Delete Users</Button>
                 </Link>
                 <Link style={{color: "inherit"}}  to={"/"} underline="hover">

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {Button} from "@mui/material";
 
@@ -13,27 +13,16 @@ function Login(props)
 
 
     //Use Effect
-
+        useEffect(() => {
+        }, [])
     //Custom Method
     function handleLogin(e)
     {
         e.preventDefault()
-        // if (userName === "admin" && password === "password")
-        // {
-        //     console.log("Click")
-        //     props.setAuthenticatedUser(true);
-        //     props.setUserLoggedIn("admin")
-        //     props.setaUserLoggedIn(true)
-        //     setUserName("")
-        //     setPassword("")
-        //     return;
-        // }
         props.authenticateLogin(userName, password)
         setUserName("")
         setPassword("")
-
     }
-
     //Main
     return (
 
@@ -42,6 +31,7 @@ function Login(props)
             <div className={"LoginStatus"}>
                 {props.aUserLoggedIn ? <p>Login as:  {props.userLogedIn}</p> : <p>Login as: Guest</p>}
             </div>
+
         <div className={"LoginPageInput"}>
 
 
@@ -52,6 +42,7 @@ function Login(props)
 
                 <img className={"LoginImg"} src={"https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"} alt={""}/>
             </header>
+            <h1>{props.errorMessage}</h1>
             <form onSubmit={(e) => handleLogin(e)}>
 
                 {!props.aUserLoggedIn ?

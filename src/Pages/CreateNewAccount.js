@@ -18,7 +18,7 @@ const [accountCreated, setAccountCreated] = useState(false)
         const data = {
            username: username,
            password: password,
-           email: email,
+           emailAddress: email,
            admin: admin
        }
        setAccountCreated(true);

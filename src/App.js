@@ -9,6 +9,7 @@ import AdminTools from "./Pages/AdminTools"
 import {useEffect, useState} from "react";
 import axios from "axios";
 import CreateNewAccount from "./Pages/CreateNewAccount";
+import DeleteUser from "./Pages/DeleteUser";
 
 function App() {
     const URL = "http://localhost:8080/PMCS"
@@ -22,9 +23,12 @@ function App() {
     //ALL TM State
     const [allTM, setAllTM] = useState([])
     const [TMSearch, setTMSearch] = useState([])
+    const [allUser, setAllUser] = useState([])
+    const [errorMessage, setErrorMessage] = useState("")
     //Use Effect
 useEffect(() => {
     getAllTM()
+    getAllUsers()
 }, [])
 
     //Custom Method
@@ -33,6 +37,12 @@ useEffect(() => {
         const response = await
             axios.get(URL)
         setAllTM(response.data);
+    }
+    async function getAllUsers()
+    {
+        const response = await
+            axios.get(URLAccount)
+        setAllUser(response.data)
     }
 
     async function postTM(data)
@@ -49,16 +59,34 @@ useEffect(() => {
     async function postNewAccount(data)
     {
         await  axios.post(URLAccount, data)
+        getAllUsers()
 
     }
 
     async function authenticateLogin(username, password)
     {
-        const response = await
-       axios.get(URLAccount + "/LookUpAccount/" + username + "/" + password )
-        setUserData(response.data)
+        try{
+            const response = await
+            axios.get(URLAccount + "/LookUpAccount/" + username + "/" + password )
+            setUserData(response.data)
+            setaUserLoggedIn(true)
+            setErrorMessage("")
+        }catch(e)
+        {
 
-        setaUserLoggedIn(true)
+            if (e.response.status === 406)
+            {
+                setErrorMessage("Invalid Password")
+            }
+            else if(e.response.status === 404)
+            {
+                setErrorMessage("User Account Dose Not Exist")
+            }
+
+
+
+        }
+
     }
     async function deleteTM(id)
     {
@@ -70,7 +98,6 @@ useEffect(() => {
     {
         setUserLoggedIn(userData.username)
         setAuthenticatedUser(userData.admin)
-        console.log(userData.username)
     }, [userData])
 
 
@@ -98,6 +125,8 @@ useEffect(() => {
                                              authenticatedUser={authenticatedUser}
                                              setAuthenticatedUser={setAuthenticatedUser}
                                              authenticateLogin={authenticateLogin}
+                                             errorMessage={errorMessage}
+                                             setErrorMessage={setErrorMessage}
                      />}/>
 
               <Route path={"/SeeAllTm"}
@@ -158,6 +187,17 @@ useEffect(() => {
                          searchTM={searchTM}
                          postNewAccount={postNewAccount}
 
+                     />}/>
+              <Route path={"/DeleteUser"}
+                     element={<DeleteUser
+                         aUserLoggedIn={aUserLoggedIn}
+                         userLogedIn={userLogedIn}
+                         authenticatedUser={authenticatedUser}
+                         TMSearch={TMSearch}
+                         searchTM={searchTM}
+                         postNewAccount={postNewAccount}
+                         getAllTM={getAllTM} allTM={allTM}
+                         allUser={allUser}
                      />}/>
 
           </Routes>

@@ -101,7 +101,7 @@ function PostNewTM(props)
             </div>
             <h1 style={{textAlign: "center", textDecoration: "underline"}}>Post New TM Into Database</h1>
 
-            <Link to={"/"} style={{color: "inherit"}}><Button sx={{backgroundColor: "Black", color: "Yellow", m: 2}} variant={"contained"}>Go Back</Button></Link>
+            <Link to={"/AdminTools"} style={{color: "inherit"}}><Button sx={{backgroundColor: "Black", color: "Yellow", m: 2}} variant={"contained"}>Go Back</Button></Link>
     <div className={"InputFormsPost"}>
         <form style={{textAlign: "center"}} onSubmit={(e) => handleSubmit(e)}>
          <span style={{margin: 5}}>
