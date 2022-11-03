@@ -93,6 +93,11 @@ useEffect(() => {
         await axios.delete(URL + "/" + id)
         getAllTM()
     }
+    async function deleteUser(id)
+    {
+        await axios.delete(URLAccount + "/" + id)
+        getAllUsers()
+    }
 
     useEffect(() =>
     {
@@ -198,6 +203,7 @@ useEffect(() => {
                          postNewAccount={postNewAccount}
                          getAllTM={getAllTM} allTM={allTM}
                          allUser={allUser}
+                         deleteUser={deleteUser}
                      />}/>
 
           </Routes>

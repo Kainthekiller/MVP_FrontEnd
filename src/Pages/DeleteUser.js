@@ -7,9 +7,9 @@ function DeleteUser(props)
     //Use State
 
     //Custom Method
-function handleDelete()
+function handleDelete(id)
 {
-
+    props.deleteUser(id)
 }
 
     //Main
