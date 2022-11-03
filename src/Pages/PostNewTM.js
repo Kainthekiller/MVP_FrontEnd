@@ -13,6 +13,7 @@ function PostNewTM(props)
     const [pageCount, setPageCount] = useState(0);
     const [pagePMCSStart, setPagePMCSStart] = useState(0);
     const [link, setLink] = useState("")
+    const [imgLink, setImgLink] = useState("")
     //Custom Method
 
 
@@ -75,7 +76,8 @@ function PostNewTM(props)
             tmNumber: tmNumber,
             pageCount: pageCount,
             pagePmcsStart: pagePMCSStart,
-            link: link
+            link: link,
+            imgLink: imgLink
         }
         props.postTM(data);
         setItemName("")
@@ -163,6 +165,16 @@ function PostNewTM(props)
                 placeholder={"Link HTTP://www.google.com"}
                 value={link}
                 onChange={(e) => setLink(e.target.value)}
+            />
+            <br/>
+            <span style={{margin: 65}}>
+            Image Link:
+        </span>
+            <input
+                style={{textAlign: "center"}}
+                placeholder={"Link HTTP://www.google.com"}
+                value={imgLink}
+                onChange={(e) => setImgLink(e.target.value)}
             />
             <br/>
             <Button type={"submit"} className={"ButtonPost"} variant={"contained"} sx={{backgroundColor: "Black" , color: "Yellow", m: 2}}>Submit</Button>

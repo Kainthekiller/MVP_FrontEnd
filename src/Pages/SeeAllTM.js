@@ -35,6 +35,7 @@ function SeeAllTM(props)
                             <TableCell align="right"><strong>TM Number</strong></TableCell>
                             <TableCell align="right"><strong>Page Count</strong></TableCell>
                             <TableCell align="right"><strong>PMCS Page Start</strong></TableCell>
+                            <TableCell align="right"><strong>Image</strong></TableCell>
 
                         </TableRow>
                     </TableHead>
@@ -56,6 +57,7 @@ function SeeAllTM(props)
                                 <TableCell align="right">{row.tmNumber}</TableCell>
                                 <TableCell align="right">{row.pageCount}</TableCell>
                                 <TableCell align="right">{row.pagePmcsStart}</TableCell>
+                                <TableCell align={"right"} ><a href={row.imgLink} target="_blank" rel="noreferrer" >{row.itemName + " image"}</a></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
