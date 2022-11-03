@@ -98,7 +98,6 @@ useEffect(() => {
         await axios.delete(URLAccount + "/" + id)
         getAllUsers()
     }
-
     useEffect(() =>
     {
         setUserLoggedIn(userData.username)
