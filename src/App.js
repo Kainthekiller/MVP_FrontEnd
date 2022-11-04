@@ -6,6 +6,7 @@ import PostNewTM from "./Pages/PostNewTM"
 import FindTM from "./Pages/FindTM"
 import SeeAllTMAdmin from "./Pages/SeeAllTMAdmin"
 import AdminTools from "./Pages/AdminTools"
+import Recommendations from "./Pages/Recommendations"
 import HelpFind from "./Pages/HelpFind"
 import {useEffect, useState} from "react";
 import axios from "axios";
@@ -15,6 +16,7 @@ import DeleteUser from "./Pages/DeleteUser";
 function App() {
     const URL = "http://localhost:8080/PMCS"
     const URLAccount = "http://localhost:8080/Account"
+    const URLRecommendations = "http://localhost:8080/Recommend"
     //Use State
     //Login States
     const [aUserLoggedIn, setaUserLoggedIn] = useState(false);
@@ -26,10 +28,12 @@ function App() {
     const [TMSearch, setTMSearch] = useState([])
     const [allUser, setAllUser] = useState([])
     const [errorMessage, setErrorMessage] = useState("")
+    const [allRecommendations, setAllRecommendations] = useState([])
     //Use Effect
 useEffect(() => {
     getAllTM()
     getAllUsers()
+    GetAllRecommendations()
 }, [])
 
     //Custom Method
@@ -44,6 +48,22 @@ useEffect(() => {
         const response = await
             axios.get(URLAccount)
         setAllUser(response.data)
+    }
+    async function GetAllRecommendations()
+    {
+        const response = await
+        axios.get(URLRecommendations)
+        setAllRecommendations(response.data)
+    }
+    async function PostRecommendations(data)
+    {
+        await axios.post(URLRecommendations, data)
+        await GetAllRecommendations()
+    }
+    async function DeleteRecommendation(id)
+    {
+        await axios.delete(URLRecommendations + "/" + id)
+        await GetAllRecommendations();
     }
 
     async function postTM(data)
@@ -60,7 +80,7 @@ useEffect(() => {
     async function postNewAccount(data)
     {
         await  axios.post(URLAccount, data)
-        getAllUsers()
+        await getAllUsers()
 
     }
 
@@ -216,6 +236,24 @@ useEffect(() => {
                          getAllTM={getAllTM} allTM={allTM}
                          allUser={allUser}
                          deleteUser={deleteUser}
+                         setAllRecommendations={setAllRecommendations}
+                         PostRecommendations={PostRecommendations}
+
+                     />}/>
+              <Route path={"/Recommendations"}
+                     element={<Recommendations
+                         aUserLoggedIn={aUserLoggedIn}
+                         userLogedIn={userLogedIn}
+                         authenticatedUser={authenticatedUser}
+                         TMSearch={TMSearch}
+                         searchTM={searchTM}
+                         postNewAccount={postNewAccount}
+                         getAllTM={getAllTM} allTM={allTM}
+                         allUser={allUser}
+                         deleteUser={deleteUser}
+                         GetAllRecommendations={GetAllRecommendations}
+                         DeleteRecommendation={DeleteRecommendation}
+                         allRecommendations={allRecommendations}
                      />}/>
 
           </Routes>

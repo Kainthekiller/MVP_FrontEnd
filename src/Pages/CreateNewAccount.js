@@ -15,6 +15,24 @@ const [accountCreated, setAccountCreated] = useState(false)
     function handleSubmit(e)
     {
         e.preventDefault()
+        if (username === "")
+        {
+            alert("Please Type A UserName")
+            return
+
+        }
+        else if (password === "")
+        {
+            alert("Please Type A Password")
+            return
+
+        }
+        else if (email === "")
+        {
+            alert("Please Type A Email")
+            return
+
+        }
         const data = {
            username: username,
            password: password,
