@@ -6,6 +6,7 @@ import PostNewTM from "./Pages/PostNewTM"
 import FindTM from "./Pages/FindTM"
 import SeeAllTMAdmin from "./Pages/SeeAllTMAdmin"
 import AdminTools from "./Pages/AdminTools"
+import HelpFind from "./Pages/HelpFind"
 import {useEffect, useState} from "react";
 import axios from "axios";
 import CreateNewAccount from "./Pages/CreateNewAccount";
@@ -204,8 +205,23 @@ useEffect(() => {
                          allUser={allUser}
                          deleteUser={deleteUser}
                      />}/>
+              <Route path={"/HelpFind"}
+                     element={<HelpFind
+                         aUserLoggedIn={aUserLoggedIn}
+                         userLogedIn={userLogedIn}
+                         authenticatedUser={authenticatedUser}
+                         TMSearch={TMSearch}
+                         searchTM={searchTM}
+                         postNewAccount={postNewAccount}
+                         getAllTM={getAllTM} allTM={allTM}
+                         allUser={allUser}
+                         deleteUser={deleteUser}
+                     />}/>
 
           </Routes>
+
+
+
 
       </Router>
 

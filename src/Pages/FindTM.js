@@ -23,6 +23,7 @@ function onSubmit(e)
                 <img className={"swfLogo"} src="https://afcwebsite.blob.core.usgovcloudapi.net/uploads/assets/sf_logo_1c_776c839b0c.svg" alt=""></img>
             </div>
             <h1 style={{textAlign: "center", textDecoration: "underline"}}>Search For TM</h1>
+            <Link to={"/HelpFind"} style={{color: "inherit", float: "right"}}><Button sx={{backgroundColor: "Black", color: "Yellow", m: 2}} variant={"contained"}>Didnt Find The TM Your Looking For?</Button></Link>
             <Link to={"/"} style={{color: "inherit"}}><Button sx={{backgroundColor: "Black", color: "Yellow", m: 2}} variant={"contained"}>Go Back</Button></Link>
             <form style={{textAlign: "center"}} onSubmit={(e) => onSubmit(e)}>
                 <input style={{width: 200, height: 50, fontSize: 20}}

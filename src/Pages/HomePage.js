@@ -41,7 +41,6 @@ function HomePage(props) {
         const response = await
             axios.get(URLDevJoke)
         setDevJokeData(response.data[0])
-        console.log(devJokeData)
 
     }
 

@@ -24,6 +24,7 @@ function SeeAllTM(props)
             <h1 style={{textAlign: "center", textDecoration: "underline"}}>View All TM</h1>
             <h3 style={{textAlign: "center" , textDecoration: "underline"}}>Select The Equpment Name To View PMCS Section of TM</h3>
             <Link to={"/"} style={{color: "inherit"}}><Button sx={{backgroundColor: "Black", color: "Yellow", m: 2}} variant={"contained"}>Go Back</Button></Link>
+            <Link to={"/HelpFind"} style={{color: "inherit", float: "right"}}><Button sx={{backgroundColor: "Black", color: "Yellow", m: 2}} variant={"contained"}>Didnt Find The TM Your Looking For?</Button></Link>
             <div className={"listOfTM"}>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
